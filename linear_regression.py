@@ -1,6 +1,4 @@
 # Import the necessary libraries
-from cProfile import label
-from tkinter.tix import Tree
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -18,6 +16,8 @@ Y = data['Salary']
 xArray = np.array(X)
 yArray = np.array(Y)
 
+# learns from the data and then returns the slope 
+# and intersept of the predicted linear equation
 def train():
 
     # Calculate the mean of the variables 
@@ -38,6 +38,9 @@ def train():
 
     return m,b
 
+# Plots the raw data in a x-y plane and the 
+# predicted linear equation from given slope
+# and intercept
 def plotEquation(m,b):
     # Plot the salary/Experience data points
     plt.scatter(X,Y)
@@ -50,6 +53,8 @@ def plotEquation(m,b):
     plt.grid()
     plt.show()
 
+# Asks for the years in experience and dispays
+# the predicted salary
 def displaySalary(m,b):
     try:
         while True:
