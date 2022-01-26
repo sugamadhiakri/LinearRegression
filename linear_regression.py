@@ -58,21 +58,21 @@ def plotEquation(m,b):
 def displaySalary(m,b):
     try:
         while True:
-            e = float(input("Enter your Years of Experience: "))
+            e = float(input("Enter your Years of Experience(string value to end): "))
             # Calculate the salary
             salary = m * e + b
             print("Your estimated salary is: ", int(salary))
-    except KeyboardInterrupt:
-        exit()
+    except ValueError:
+        quit()
 
 if __name__ == "__main__":
     m,b = train()
-    plotEquation(m,b)
 
-    
     t1 = threading.Thread(target=displaySalary, args=(m,b))
-    
     t1.start()
+    
+    plotEquation(m,b)
+    
     
 
 
